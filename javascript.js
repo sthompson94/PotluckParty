@@ -4,9 +4,15 @@ console.log("page loaded");
 $("#addBtn").on("click", function(){
     //prevent page refresh
     event.preventDefault();
+
      //grabbing form inputs
     var name = $("#nameInput").val();
     var item = $("#itemInput").val();
+
+    if(!name || !item){
+        alert("please type a name and Item before adding to the list")
+    }
+    else{
 //creating new table data from form inputs
     var newRow = $("<tr>");
     var newName = $("<td>");
@@ -25,6 +31,7 @@ $("#addBtn").on("click", function(){
     //clear the form fields.
     $("#nameInput").val("");
     $("#itemInput").val("")
+}
 })
 
 })
