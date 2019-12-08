@@ -50,6 +50,14 @@ $("#searchBtn").on("click", function(){
     })
     .done(function(data){
         console.log(data);
+        $("#recipeSearch").val("")
+        $("#searchResults").html("")
+        for(var i = 0; i < data.hits.length; i++){
+        $("#searchResults").append("<h4>" + data.hits[i].recipe.label + "</h4>" +
+        "<a href=" + data.hits[i].recipe.url + ">" + "<img src=" + data.hits[i].recipe.image + "> </a>"
+        )
+
+        }
     })
     .fail(function(){
         console.log("something went wrong");
