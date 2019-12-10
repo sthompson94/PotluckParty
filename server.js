@@ -9,6 +9,8 @@ var PORT = 3000;
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 //basic route that sends the index.html page
 
 app.get("/", function(req, res){
