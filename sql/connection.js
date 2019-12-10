@@ -22,11 +22,11 @@ connection.connect(function(err){
     afterConnect();
 })
 
-functionm afterConnect(){
+function afterConnect(){
     connection.query("SELECT * FROM people", function(err, res){
         if(err) throw err;
 
         console.log(res);
-    })
+    });
 }
 
