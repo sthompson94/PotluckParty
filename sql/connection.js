@@ -27,6 +27,7 @@ function afterConnect(){
         if(err) throw err;
 
         console.log(res);
+
     });
 }
 

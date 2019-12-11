@@ -5,13 +5,16 @@ var router = express.Router();
 
 //Routes
 //============================================
-router.get(("/api/all", function(req, res){
+module.exports = 
+    function(app){
+app.get(("/api", function(req, res){
     connection.query("SELECT * FROM people", function(err, result){
         if(err) throw err;
 
-        res.json(result)
+       return res.json(result);
     });
 }));
+    
+    }
 
 
-module.exports = router;

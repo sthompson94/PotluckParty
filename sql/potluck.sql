@@ -6,10 +6,10 @@ use potluck_db;
 
 CREATE TABLE people(
     id INT(50) NOT NULL AUTO_INCREMENT,
-    name VARCHAR(50),
+    Firstname VARCHAR(50),
     food VARCHAR(255),
     PRIMARY KEY (id)
 );
 
-INSERT INTO people(name, food)
+INSERT INTO people(Firstname, food)
 VALUES("Brenda", "Bread");
