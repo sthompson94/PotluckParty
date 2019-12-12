@@ -9,6 +9,16 @@ $("#addBtn").on("click", function(){
     var name = $("#nameInput").val();
     var item = $("#itemInput").val();
 
+    var data = {
+        Firstname: name,
+        food : item
+    }
+    console.log(data);
+    $.post("/api", data , function(data, status){
+        console.log(data);
+    })
+    
+
     if(!name || !item){
         alert("please type a name and Item before adding to the list")
     }
@@ -20,6 +30,9 @@ $("#addBtn").on("click", function(){
 
     
 //appending information to the appropriate variables
+$.get("/", function(data){
+    console.log(data);
+})
     newName.append(name);
     newFood.append(item);
     newRow.append(newName);

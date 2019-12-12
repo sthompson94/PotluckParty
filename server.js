@@ -63,6 +63,15 @@ return res.json(result);
     })
 })
 
+app.post("/api", function(req, res){
+    console.log(req);
+    connection.query("INSERT INTO people SET ?",
+    {
+        Firstname: req.body.Firstname,
+        food: req.body.food
+    })
+})
+
 //additonal routes
 // app.use("/", routes);
 
