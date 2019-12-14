@@ -1,5 +1,36 @@
+
 $(document).ready(function(){
 console.log("page loaded");
+
+getTable()
+
+function getTable(){
+
+$.get("/api", function(data){
+
+$("div.dataDiv").html("");
+
+
+    for(var i = 0; i < data.length; i++){
+//creating new table data from form inputs
+    var newRow = $("<tr>");
+    var newName = $("<td>");
+    var newFood = $("<td>");
+
+    
+//appending information to the appropriate variables
+
+    newName.append(data[i].Firstname);
+    newFood.append(data[i].food);
+    newRow.append(newName);
+    newRow.append(newFood);
+    newRow.addClass("foodData")
+
+    $("#potluckTable").append(newRow)
+    }
+
+})
+}
 
 $("#addBtn").on("click", function(){
     //prevent page refresh
@@ -14,34 +45,16 @@ $("#addBtn").on("click", function(){
         food : item
     }
     console.log(data);
-    $.post("/api", data , function(data, status){
-        console.log(data);
-    })
+    
     
 
     if(!name || !item){
         alert("please type a name and Item before adding to the list")
     }
     else{
-//creating new table data from form inputs
-    var newRow = $("<tr>");
-    var newName = $("<td>");
-    var newFood = $("<td>");
-
-    
-//appending information to the appropriate variables
-$.get("/", function(data){
-    console.log(data);
-})
-    newName.append(name);
-    newFood.append(item);
-    newRow.append(newName);
-    newRow.append(newFood);
-//appending the new row to the table
-    $("#potluckTable").append(newRow)
-
-    
-    //clear the form fields.
+        $.post("/api", data , function(data, status){
+            console.log(data);
+        }).then(getTable)
     $("#nameInput").val("");
     $("#itemInput").val("")
 }
@@ -74,5 +87,17 @@ $("#searchBtn").on("click", function(){
     })
     .fail(function(){
         console.log("something went wrong");
+    })
+})
+
+$("#clearBtn").on("click", function(){
+    console.log("button pressed");
+    event.preventDefault();
+    $.ajax({
+        url: '/api',
+        type: 'DELETE',
+        }
+    ).done(function(){
+        console.log("request sent");
     })
 })

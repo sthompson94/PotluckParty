@@ -72,6 +72,13 @@ app.post("/api", function(req, res){
     })
 })
 
+app.delete("/api", function(req, res){
+    connection.query("DELETE FROM people", function(err, result){
+        console.log(result)
+        res.json(req.body);
+    })
+})
+
 //additonal routes
 // app.use("/", routes);
 
