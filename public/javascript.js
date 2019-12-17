@@ -66,9 +66,13 @@ $("#searchBtn").on("click", function(){
     event.preventDefault();
 
     var searchTerm = $("#recipeSearch").val();
+
+    //Cridentials for edamam API
     var appID = "b20d1379"
     var appKey = "c47228934d4f4cdfe6888fd07a9d2df8"
 
+
+    //GET request to recipe API
     $.ajax({
         method: "GET",
         url: "https://api.edamam.com/search?q=" + searchTerm + "&app_id=" + appID + "&app_key=" + appKey,
@@ -76,7 +80,9 @@ $("#searchBtn").on("click", function(){
     })
     .done(function(data){
         console.log(data);
+        //Clear the search bar
         $("#recipeSearch").val("")
+        //clear the search results div 
         $("#searchResults").html("")
         for(var i = 0; i < data.hits.length; i++){
         $("#searchResults").append("<h4>" + data.hits[i].recipe.label + "</h4>" +

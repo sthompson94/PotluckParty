@@ -31,3 +31,4 @@ function afterConnect(){
     });
 }
 
+module.exports = connection;

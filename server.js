@@ -1,5 +1,6 @@
 var express = require("express");
 var path = require("path");
+var routes = require("./routes/routes")
 // var connection = require("./sql/connection");
 
 
@@ -9,37 +10,37 @@ var app = express();
 var PORT = 3000;
 
 var mysql = require("mysql");
-
+var connection = require("./sql/connection");
 // pass through the cridentials to connect to mysql and give the intended database
-var connection = mysql.createConnection({
+// var connection = mysql.createConnection({
     
-    host: "localhost",
+//     host: "localhost",
 
-    port: 3306,
+//     port: 3306,
 
-    user: "root",
+//     user: "root",
 
-    password: "password",
-    database: "potluck_db"
+//     password: "password",
+//     database: "potluck_db"
 
-});
+// });
 
-//connect to the database
-connection.connect(function(err){
-    if(err) throw err;
+// //connect to the database
+// connection.connect(function(err){
+//     if(err) throw err;
 
-    console.log("Connection Successful");
-    afterConnect();
-})
+//     console.log("Connection Successful");
+//     afterConnect();
+// })
 
-function afterConnect(){
-    connection.query("SELECT * FROM people", function(err, res){
-        if(err) throw err;
+// function afterConnect(){
+//     connection.query("SELECT * FROM people", function(err, res){
+//         if(err) throw err;
 
-        console.log(res);
+//         console.log(res);
 
-    });
-}
+//     });
+// }
 
 
 
@@ -56,28 +57,22 @@ app.get("/", function(req, res){
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.get("/api", function(req, res){
-    connection.query("SELECT * FROM people", function(err, result){
-        console.log(result);
-return res.json(result);
-    })
-})
 
-app.post("/api", function(req, res){
-    console.log(req);
-    connection.query("INSERT INTO people SET ?",
-    {
-        Firstname: req.body.Firstname,
-        food: req.body.food
-    })
-})
 
-app.delete("/api", function(req, res){
-    connection.query("DELETE FROM people", function(err, result){
-        console.log(result)
-        res.json(req.body);
-    })
-})
+app.use("/", routes);
+
+
+// //Route for posting info
+// app.post("/api", function(req, res){
+//     console.log(req);
+//     connection.query("INSERT INTO people SET ?",
+//     {
+//         Firstname: req.body.Firstname,
+//         food: req.body.food
+//     })
+// })
+
+
 
 //additonal routes
 // app.use("/", routes);
