@@ -1,39 +1,53 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" src='style.css'>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    </head>
-    <body>
-<h1>Potluck Party!</h1>
-<h4>Who's bringing what?</h4>
-<form>
-    Name: <br>
-    <input type="text" id="nameInput" name="person"> <br>
-    Item: <br>
-    <input type="text" id="itemInput" name="item">
-    <button id="addBtn" type="submit">Add</button>
-</form>
+<head>
+    <title>Potluck Party Planner</title>
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-<table id="potluckTable">
-    <tr>
-    <th>People</th>
-    <th>Food</th>
-    </tr>
-    <div class="dataDiv"></div>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link rel="stylesheet" src="./public/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="center">Potluck Party!</h1>
+        <h5 class="center">Who's bringing what?</h5>
+        <form>
+            <div class="row">
+                
+                <input type="text" placeholder="Name" id="nameInput" name="person" class="col s5">
+                <div class="col s1"></div>
+                <input type="text" placeholder="Item" id="itemInput" name="item" class="col s5">
+                <button id="addBtn" type="submit" class="col s1 btn">Add</button>
+            </div>
+        </form>
+
+        <table id="potluckTable" class="striped">
+            <tr>
+                <th>People</th>
+                <th>Food</th>
+            </tr>
+            <div class="dataDiv"></div>
 
 
-</table>
-<button id="clearBtn" type="submit">Clear Table</button>
+        </table>
+        <button id="clearBtn" type="submit">Clear Table</button>
 
 
-<form>
-    Need a Recipe? <br>
-    <input type="text" id="recipeSearch" name="recipe">
-    <button id="searchBtn" type="submit">Search</button>
-</form>
-<div id="searchResults"></div>
-    </body>
-    <script src="javascript.js"></script>
+        <form>
+            Need a Recipe? <br>
+            <input type="text" id="recipeSearch" name="recipe">
+            <button id="searchBtn" type="submit">Search</button>
+        </form>
+        <div id="searchResults" class="row"></div>
+    </div>
+</body>
+<script src="javascript.js"></script>
+
 </html>

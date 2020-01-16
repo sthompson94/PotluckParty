@@ -1,6 +1,7 @@
 var express = require("express");
 var path = require("path");
 var routes = require("./routes/routes")
+var cors = require("cors");
 // var connection = require("./sql/connection");
 
 
@@ -45,7 +46,7 @@ var connection = require("./sql/connection");
 
 
 //set up express to handle data parsing
-
+app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
@@ -57,25 +58,9 @@ app.get("/", function(req, res){
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
-
-
+// All additional Routes
 app.use("/", routes);
 
-
-// //Route for posting info
-// app.post("/api", function(req, res){
-//     console.log(req);
-//     connection.query("INSERT INTO people SET ?",
-//     {
-//         Firstname: req.body.Firstname,
-//         food: req.body.food
-//     })
-// })
-
-
-
-//additonal routes
-// app.use("/", routes);
 
 app.listen(PORT, function(){
     console.log("App listening on PORT" + PORT);

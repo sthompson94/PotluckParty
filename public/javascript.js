@@ -85,8 +85,8 @@ $("#searchBtn").on("click", function(){
         //clear the search results div 
         $("#searchResults").html("")
         for(var i = 0; i < data.hits.length; i++){
-        $("#searchResults").append("<h4>" + data.hits[i].recipe.label + "</h4>" +
-        "<a href=" + data.hits[i].recipe.url + ">" + "<img src=" + data.hits[i].recipe.image + "> </a>"
+        $("#searchResults").append("<div class='col m4 s6'><h5 class='truncate center flow-text'>" + data.hits[i].recipe.label + "</h5>" +
+        "<a href=" + data.hits[i].recipe.url + ">" + "<img class='responsive-img' src=" + data.hits[i].recipe.image + "> </a> <div>"
         )
 
         }
