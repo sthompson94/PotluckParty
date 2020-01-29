@@ -14,7 +14,7 @@
     <link rel="stylesheet" src="./public/style.css">
 </head>
 
-<body>
+<body class="grey lighten-5">
     <div class="container">
         <h1 class="center">Potluck Party!</h1>
         <h5 class="center">Who's bringing what?</h5>
@@ -24,7 +24,7 @@
                 <input type="text" placeholder="Name" id="nameInput" name="person" class="col s5">
                 <div class="col s1"></div>
                 <input type="text" placeholder="Item" id="itemInput" name="item" class="col s5">
-                <button id="addBtn" type="submit" class="col s1 btn">Add</button>
+                <button id="addBtn" type="submit" class="col s1 btn teal lighten-4"><span class="text-black">Add</span></button>
             </div>
         </form>
 
@@ -39,10 +39,11 @@
         </table>
         <button id="clearBtn" type="submit">Clear Table</button>
 
-
+<br>
         <form>
-            Need a Recipe? <br>
-            <input type="text" id="recipeSearch" name="recipe">
+            <br>
+            <h5>Need a recipe?</h5>
+            <input type="text" id="recipeSearch" placeholder="Search for a dish" name="recipe">
             <button id="searchBtn" type="submit">Search</button>
         </form>
         <div id="searchResults" class="row"></div>

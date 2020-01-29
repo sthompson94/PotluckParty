@@ -54,7 +54,7 @@ $("#addBtn").on("click", function(){
     else{
         $.post("/api", data , function(data, status){
             console.log(data);
-        }).then(getTable)
+        }).then(location.reload())
     $("#nameInput").val("");
     $("#itemInput").val("")
 }
@@ -86,7 +86,7 @@ $("#searchBtn").on("click", function(){
         $("#searchResults").html("")
         for(var i = 0; i < data.hits.length; i++){
         $("#searchResults").append("<div class='col m4 s6'><h5 class='truncate center flow-text'>" + data.hits[i].recipe.label + "</h5>" +
-        "<a href=" + data.hits[i].recipe.url + ">" + "<img class='responsive-img' src=" + data.hits[i].recipe.image + "> </a> <div>"
+        "<a href=" + data.hits[i].recipe.url + ">" + "<img class='responsive-img' src=" + data.hits[i].recipe.image +"  > </a> <div>"
         )
 
         }
@@ -105,5 +105,6 @@ $("#clearBtn").on("click", function(){
         }
     ).done(function(){
         console.log("request sent");
+        location.reload();
     })
 })
