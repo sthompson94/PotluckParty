@@ -3,14 +3,19 @@ var mysql = require("mysql");
 // pass through the cridentials to connect to mysql and give the intended database
 var connection = mysql.createConnection({
     
-    HOST: "us-cdbr-iron-east-04.cleardb.net",
-    USER: "b990e4bc318ffb",
-    PASSWORD: "388fcb5e",
-    DB: "heroku_80a7bb762a27144"
+    host: "us-cdbr-iron-east-04.cleardb.net",
+
+    port: 3306,
+
+    user: "bb148d41a42cd6",
+
+    password: "501a8c14",
+    database: "heroku_fff6ebb5fb33f80"
 
 });
 
-//connect to the database
+// mysql://bb148d41a42cd6:501a8c14@us-cdbr-iron-east-04.cleardb.net/heroku_fff6ebb5fb33f80?reconnect=true
+
 connection.connect(function(err){
     if(err) throw err;
 
