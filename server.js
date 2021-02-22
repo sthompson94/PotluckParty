@@ -2,51 +2,15 @@ var express = require("express");
 var path = require("path");
 var routes = require("./routes/routes")
 var cors = require("cors");
-// var connection = require("./sql/connection");
-
-
-// var routes = require("./routes/routes")
-
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-var mysql = require("mysql");
-var connection = require("./sql/connection");
-// pass through the cridentials to connect to mysql and give the intended database
-// var connection = mysql.createConnection({
-    
-//     host: "localhost",
-
-//     port: 3306,
-
-//     user: "root",
-
-//     password: "password",
-//     database: "potluck_db"
-
-// });
-
-// //connect to the database
-// connection.connect(function(err){
-//     if(err) throw err;
-
-//     console.log("Connection Successful");
-//     afterConnect();
-// })
-
-// function afterConnect(){
-//     connection.query("SELECT * FROM people", function(err, res){
-//         if(err) throw err;
-
-//         console.log(res);
-
-//     });
-// }
 
 
+//set up app to use cors middleware
+app.use(cors());
 
 //set up express to handle data parsing
-app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 

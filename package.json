@@ -1,5 +1,5 @@
 {
-  "name": "PotluckParty",
+  "name": "potluck-party",
   "version": "1.0.0",
   "description": "",
   "main": "javascript.js",
@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/peepcrusher/PotluckParty/issues"
   },
-  "homepage": "https://github.com/peepcrusher/PotluckParty#readme",
+  "homepage": "https://github.com/peepcrusher/PotluckParty",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",

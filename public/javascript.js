@@ -16,12 +16,14 @@ $("div.dataDiv").html("");
     var newRow = $("<tr>");
     var newName = $("<td>");
     var newFood = $("<td>");
+    var newBtn = $("<button type='submit' id='deleteRowBtn'>Delete Item</button>")
 
     
 //appending information to the appropriate variables
 
     newName.append(data[i].Firstname);
     newFood.append(data[i].food);
+    newFood.append(newBtn)
     newRow.append(newName);
     newRow.append(newFood);
     newRow.addClass("foodData")
@@ -60,6 +62,30 @@ $("#addBtn").on("click", function(){
 }
 })
 
+$("#deleteRowBtn").click(function(){
+    console.log("button clicked");
+    event.preventDefault();
+    console.log("button clicked");
+    $.get("/api", function(data){
+        console.log(data);
+    })
+    
+})
+
+//Function for clearing the table and database
+$("#clearBtn").on("click", function(){
+    console.log("button pressed");
+    event.preventDefault();
+    $.ajax({
+        url: '/api',
+        type: 'DELETE',
+        }
+    ).done(function(){
+        console.log("request sent");
+        location.reload();
+    })
+})
+
 })
 
 $("#searchBtn").on("click", function(){
@@ -96,15 +122,3 @@ $("#searchBtn").on("click", function(){
     })
 })
 
-$("#clearBtn").on("click", function(){
-    console.log("button pressed");
-    event.preventDefault();
-    $.ajax({
-        url: '/api',
-        type: 'DELETE',
-        }
-    ).done(function(){
-        console.log("request sent");
-        location.reload();
-    })
-})
