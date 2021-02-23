@@ -1,7 +1,7 @@
 var mysql = require("mysql");
 
 // pass through the cridentials to connect to mysql and give the intended database
-var connection = mysql.createPool({
+var connection = mysql.createConnection({
     
     host: "us-cdbr-iron-east-04.cleardb.net",
 
