@@ -34,6 +34,13 @@ router.delete("/api", function(req, res){
     })
 })
 
+router.delete("/api/:id", function(req, res){
+connection.query("DELETE FROM people WHERE id = " + req.id, function(err, result){
+    console.log(result);
+    res.json(req.body);
+})
+})
+
     
 module.exports = router;
 

@@ -23,7 +23,7 @@ $("div.dataDiv").html("");
 
     newName.append(data[i].Firstname);
     newFood.append(data[i].food);
-    newFood.append(newBtn)
+    // newFood.append(newBtn)
     newRow.append(newName);
     newRow.append(newFood);
     newRow.addClass("foodData")
@@ -34,7 +34,7 @@ $("div.dataDiv").html("");
 })
 }
 
-$("#addBtn").on("click", function(){
+$("#addBtn").on("click", function(event){
     //prevent page refresh
     event.preventDefault();
 
@@ -62,12 +62,14 @@ $("#addBtn").on("click", function(){
 }
 })
 
-$("#deleteRowBtn").click(function(){
+$("#deleteRowBtn").click(function(event){
     console.log("button clicked");
     event.preventDefault();
     console.log("button clicked");
-    $.get("/api", function(data){
-        console.log(data);
+    $.ajax({
+        url: '/api',
+        type:'delete'
+        
     })
     
 })
@@ -88,7 +90,7 @@ $("#clearBtn").on("click", function(){
 
 })
 
-$("#searchBtn").on("click", function(){
+$("#searchBtn").on("click", function(event){
     event.preventDefault();
 
     var searchTerm = $("#recipeSearch").val();
