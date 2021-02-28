@@ -114,7 +114,7 @@ $("#searchBtn").on("click", function(event){
         $("#searchResults").html("")
         for(var i = 0; i < data.hits.length; i++){
         $("#searchResults").append("<div class='col m4 s6'><h5 class='truncate center flow-text'>" + data.hits[i].recipe.label + "</h5>" +
-        "<a href=" + data.hits[i].recipe.url + ">" + "<img class='responsive-img' src=" + data.hits[i].recipe.image +"  > </a> <div>"
+        "<a href=" + data.hits[i].recipe.url + ">" + "<img class='responsive-img' src=" + data.hits[i].recipe.image +"  > </a><div>"
         )
 
         }
