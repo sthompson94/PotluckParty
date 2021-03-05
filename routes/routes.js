@@ -8,7 +8,15 @@ var router = express.Router();
 
 //Route for getting all the info
 router.get("/api", function(req, res){
-    connection.query("SELECT * FROM people", function(err, result){
+    connection.connection.query("SELECT * FROM people", function(err, result){
+        connection.connection.on('error', function(err) {
+            console.log('db error', err);
+            if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
+              connection.handleDisconnect();                         // lost due to either server restart, or a
+            } else {                                      // connnection idle timeout (the wait_timeout
+              throw err;                                  // server variable configures this)
+            }
+          });
         console.log(result);
 return res.json(result);
     })

@@ -75,7 +75,7 @@ $("#deleteRowBtn").click(function(event){
 })
 
 //Function for clearing the table and database
-$("#clearBtn").on("click", function(){
+$("#clearBtn").on("click", function(event){
     console.log("button pressed");
     event.preventDefault();
     $.ajax({
